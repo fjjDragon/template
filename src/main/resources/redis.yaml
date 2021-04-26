@@ -1,0 +1,52 @@
+clusterServersConfig:
+  #  连接空闲超时
+  idleConnectionTimeout: 10000
+  #  连接超时
+  connectTimeout: 10000
+  #  命令等待超时
+  timeout: 3000
+  #  命令失败重试次数
+  retryAttempts: 3
+  #  命令重试发送时间间隔
+  retryInterval: 1500
+  #  重新连接时间间隔
+  reconnectionTimeout: 3000
+  #  执行失败最大次数
+  failedAttempts: 3
+  password: liudao
+  #  单个连接最大订阅数量
+  subscriptionsPerConnection: 5
+  clientName: null
+  #  负载均衡算法类的选择
+  loadBalancer: !<org.redisson.conneticon.balancer.RoundRobinLoadBalancer> { }
+  #  从节点发布和订阅连接的最小空闲连接数
+  slaveSubscriptionConnectionMinimumIdleSize: 1
+  slaveSubscriptionConnectionPoolSize: 50
+  #  从节点最小空闲连接数
+  slaveConnectionMinimumIdleSize: 32
+  #  从节点连接池大小
+  slaveConnectionPoolSize: 64
+  #  主节点最小空闲连接数
+  masterConnectionMinimumIdleSize: 32
+  #  主节点连接池大小
+  masterConnectionPoolSize: 64
+  #  读取操作的负载均衡模式
+  readMode: "SLAVE"
+  nodeAddresses:
+    # use "rediss://" for SSL connection
+    - "redis://119.90.39.167:7000"
+    - "redis://119.90.39.167:7001"
+    - "redis://119.90.39.167:7002"
+    - "redis://119.90.39.167:7003"
+    - "redis://119.90.39.167:7004"
+    - "redis://119.90.39.167:7005"
+  #  集群扫描间隔时间
+  scanInterval: 1000
+# 线程池数量
+threads: 0
+# Netty线程池数量
+nettyThreads: 0
+# 编码，用于将对象进行序列化和反序列化
+codec: !<org.redisson.codec.JsonJacksonCodec> { }
+# 传输模式
+"transportMode": "NIO"
