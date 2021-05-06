@@ -12,18 +12,32 @@ public class UserData {
 
     private String openid;
 
-    private long cTime;
-
     private long uTime;
 
     private GameInfo gameInfo;
 
-    public long getcTime() {
-        return cTime;
+    public int getUid() {
+        return uid;
     }
 
-    public void setcTime(long cTime) {
-        this.cTime = cTime;
+    public void setUid(int uid) {
+        this.uid = uid;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public GameInfo getGameInfo() {
+        return gameInfo;
+    }
+
+    public void setGameInfo(GameInfo gameInfo) {
+        this.gameInfo = gameInfo;
     }
 
     public long getuTime() {

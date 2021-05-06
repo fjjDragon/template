@@ -2,6 +2,8 @@ package com.fish.dao;
 
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
+import org.redisson.api.RKeys;
+import org.redisson.api.RType;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 
@@ -12,28 +14,46 @@ import org.redisson.config.Config;
 @Slf4j
 public class RedisDao {
 
-    public static void main(String[] args) {
-        init();
+    private RedissonClient client;
+
+    private RedisDao() {
+
     }
 
-    public static boolean init() {
+    public static RedisDao getInstance() {
+        return RedisDaoHolder.instance;
+    }
+
+    static class RedisDaoHolder {
+        private static RedisDao instance = new RedisDao();
+
+    }
+
+    public static void main(String[] args) {
+        RedisDao.getInstance().init();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> RedisDao.getInstance().shutdown()));
+        System.exit(0);
+    }
+
+    public boolean init() {
         try {
 
             Config config = Config.fromYAML(RedisDao.class.getClassLoader().getResource("redis.yaml"));
 
-            // or read config from file
-//            config = Config.fromYAML(new File("config-file.yaml"));
-            // 2. Create Redisson instance
+            client = Redisson.create(config);
 
-            // Sync and Async API
-            RedissonClient redisson = Redisson.create(config);
-//
-//            // Reactive API
-//            RedissonReactiveClient redissonReactive = redisson.reactive();
-//
-//            // RxJava3 API
-//            RedissonRxClient redissonRx = redisson.rxJava();
-            System.out.println();
+            RKeys keys = client.getKeys();
+
+            int i = 0;
+//            Iterator<String> iterator = keys.getKeys().iterator();
+//            while (iterator.hasNext()) {
+//                i++;
+//                String next = iterator.next();
+//                System.out.println(keys.getType(next) + ":" + next);
+//            }
+            RType test = keys.getType("test");
+            System.out.println(test);
+            System.out.println(i);
             return true;
         } catch (Exception e) {
             log.error("", e);
@@ -42,5 +62,10 @@ public class RedisDao {
 
     }
 
+    public void shutdown() {
+        if (null != client) {
+            client.shutdown();
+        }
+    }
 
 }

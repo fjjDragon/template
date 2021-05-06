@@ -10,7 +10,14 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class UserCache {
     //玩家数据缓存<uid ,< uid,userInfo >>
-    public static ConcurrentHashMap<Integer, UserData> userCache = new ConcurrentHashMap<>();
+    private static ConcurrentHashMap<Integer, UserData> userCache = new ConcurrentHashMap<>();
 
+    public static UserData getUserById(int uid) {
+        return userCache.get(uid);
+    }
+
+    public void addCache(UserData userData) {
+        userCache.put(userData.getUid(), userData);
+    }
 
 }

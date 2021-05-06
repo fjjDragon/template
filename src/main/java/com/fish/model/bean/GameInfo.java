@@ -6,9 +6,15 @@ package com.fish.model.bean;
  */
 public class GameInfo {
 
+    private int uid;
+    // 普通货币
     private int coin;
+    // 钻石货币
     private int domain;
-
+    // 创号时间戳
+    private int cTime;
+    // 更新时间戳
+    private int uTime;
 
 
 }
