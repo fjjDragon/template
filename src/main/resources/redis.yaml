@@ -18,7 +18,7 @@ clusterServersConfig:
   subscriptionsPerConnection: 5
   clientName: null
   #  负载均衡算法类的选择
-  loadBalancer: !<org.redisson.conneticon.balancer.RoundRobinLoadBalancer> { }
+#  loadBalancer: !<org.redisson.connection.balancer.RoundRobinLoadBalancer> { }
   #  从节点发布和订阅连接的最小空闲连接数
   slaveSubscriptionConnectionMinimumIdleSize: 1
   slaveSubscriptionConnectionPoolSize: 50
@@ -34,12 +34,12 @@ clusterServersConfig:
   readMode: "SLAVE"
   nodeAddresses:
     # use "rediss://" for SSL connection
-    - "redis://119.90.39.167:7000"
-    - "redis://119.90.39.167:7001"
-    - "redis://119.90.39.167:7002"
-    - "redis://119.90.39.167:7003"
-    - "redis://119.90.39.167:7004"
-    - "redis://119.90.39.167:7005"
+    - "redis://192.168.2.1:7000"
+    - "redis://192.168.2.2:7000"
+    - "redis://192.168.2.3:7000"
+    - "redis://192.168.2.4:7000"
+    - "redis://192.168.2.5:7000"
+    - "redis://192.168.2.6:7000"
   #  集群扫描间隔时间
   scanInterval: 1000
 # 线程池数量
