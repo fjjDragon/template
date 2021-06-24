@@ -11,10 +11,6 @@ public class GameInfo {
     private int coin;
     // 钻石货币
     private int domain;
-    // 创号时间戳
-    private int cTime;
-    // 更新时间戳
-    private int uTime;
 
 
 }

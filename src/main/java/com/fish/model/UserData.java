@@ -12,6 +12,9 @@ public class UserData {
 
     private String openid;
 
+    // 创号时间戳
+    private long cTime;
+    // 更新时间戳
     private long uTime;
 
     private GameInfo gameInfo;
@@ -46,5 +49,15 @@ public class UserData {
 
     public void setuTime(long uTime) {
         this.uTime = uTime;
+    }
+
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "uid=" + uid +
+                ", openid='" + openid + '\'' +
+                ", uTime=" + uTime +
+                ", gameInfo=" + gameInfo +
+                '}';
     }
 }

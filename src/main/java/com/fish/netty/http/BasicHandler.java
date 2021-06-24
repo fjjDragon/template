@@ -24,7 +24,7 @@ public abstract class BasicHandler implements Runnable {
     /**
      * 解析url上的参数
      */
-//    protected UriDecoder hrp;
+    protected UriDecoder hrp;
     /**
      * http post 数据内容
      */
@@ -55,20 +55,12 @@ public abstract class BasicHandler implements Runnable {
      */
     public abstract void doPost();
 
-    public long getTime() {
-        return time;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
-    }
-
     @Override
     public void run() {
         long cut = System.currentTimeMillis();
         String remoteIp = ctx.channel().remoteAddress().toString();
-//        hrp = new UriDecoder();
-//        hrp.praser(request.uri());
+        hrp = new UriDecoder();
+        hrp.praser(request.uri());
 //        hrp.setIp(remoteIp);
 //        hrp.setIpFromXForwardFor(request.headers().get("X-Forwarded-For"));
         if (cut - time > 30000l) {
@@ -147,5 +139,13 @@ public abstract class BasicHandler implements Runnable {
      */
     public void closeChannel() {
         ctx.close();
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 }
