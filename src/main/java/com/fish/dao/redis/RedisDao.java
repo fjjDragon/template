@@ -43,6 +43,9 @@ public class RedisDao {
         private static RedisDao instance = new RedisDao();
     }
 
+    public RedissonClient getRedisson() {
+        return redisson;
+    }
 
     public boolean acquire(String lockName) {
         //声明key对象

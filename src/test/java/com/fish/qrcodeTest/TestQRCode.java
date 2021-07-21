@@ -1,4 +1,4 @@
-package com.fish.qrcode;
+package com.fish.qrcodeTest;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;

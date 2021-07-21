@@ -1,4 +1,4 @@
-package com.fish.test;
+package com.fish.udpTest;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

@@ -19,12 +19,12 @@ public final class User {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 uid = 1;</code>
+     * <code>required int32 uid = 1;</code>
      * @return Whether the uid field is set.
      */
     boolean hasUid();
     /**
-     * <code>required uint32 uid = 1;</code>
+     * <code>required int32 uid = 1;</code>
      * @return The uid.
      */
     int getUid();
@@ -34,7 +34,7 @@ public final class User {
      *金币
      * </pre>
      *
-     * <code>required uint32 gold = 2;</code>
+     * <code>required int32 gold = 2;</code>
      * @return Whether the gold field is set.
      */
     boolean hasGold();
@@ -43,7 +43,7 @@ public final class User {
      *金币
      * </pre>
      *
-     * <code>required uint32 gold = 2;</code>
+     * <code>required int32 gold = 2;</code>
      * @return The gold.
      */
     int getGold();
@@ -53,7 +53,7 @@ public final class User {
      *银币
      * </pre>
      *
-     * <code>required uint32 silver = 3;</code>
+     * <code>required int32 silver = 3;</code>
      * @return Whether the silver field is set.
      */
     boolean hasSilver();
@@ -62,7 +62,7 @@ public final class User {
      *银币
      * </pre>
      *
-     * <code>required uint32 silver = 3;</code>
+     * <code>required int32 silver = 3;</code>
      * @return The silver.
      */
     int getSilver();
@@ -169,17 +169,17 @@ public final class User {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              uid_ = input.readUInt32();
+              uid_ = input.readInt32();
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              gold_ = input.readUInt32();
+              gold_ = input.readInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              silver_ = input.readUInt32();
+              silver_ = input.readInt32();
               break;
             }
             case 34: {
@@ -244,7 +244,7 @@ public final class User {
     public static final int UID_FIELD_NUMBER = 1;
     private int uid_;
     /**
-     * <code>required uint32 uid = 1;</code>
+     * <code>required int32 uid = 1;</code>
      * @return Whether the uid field is set.
      */
     @java.lang.Override
@@ -252,7 +252,7 @@ public final class User {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 uid = 1;</code>
+     * <code>required int32 uid = 1;</code>
      * @return The uid.
      */
     @java.lang.Override
@@ -267,7 +267,7 @@ public final class User {
      *金币
      * </pre>
      *
-     * <code>required uint32 gold = 2;</code>
+     * <code>required int32 gold = 2;</code>
      * @return Whether the gold field is set.
      */
     @java.lang.Override
@@ -279,7 +279,7 @@ public final class User {
      *金币
      * </pre>
      *
-     * <code>required uint32 gold = 2;</code>
+     * <code>required int32 gold = 2;</code>
      * @return The gold.
      */
     @java.lang.Override
@@ -294,7 +294,7 @@ public final class User {
      *银币
      * </pre>
      *
-     * <code>required uint32 silver = 3;</code>
+     * <code>required int32 silver = 3;</code>
      * @return Whether the silver field is set.
      */
     @java.lang.Override
@@ -306,7 +306,7 @@ public final class User {
      *银币
      * </pre>
      *
-     * <code>required uint32 silver = 3;</code>
+     * <code>required int32 silver = 3;</code>
      * @return The silver.
      */
     @java.lang.Override
@@ -429,13 +429,13 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, uid_);
+        output.writeInt32(1, uid_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, gold_);
+        output.writeInt32(2, gold_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeUInt32(3, silver_);
+        output.writeInt32(3, silver_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         output.writeMessage(4, getItems());
@@ -454,15 +454,15 @@ public final class User {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, uid_);
+          .computeInt32Size(1, uid_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, gold_);
+          .computeInt32Size(2, gold_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, silver_);
+          .computeInt32Size(3, silver_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -867,7 +867,7 @@ public final class User {
 
       private int uid_ ;
       /**
-       * <code>required uint32 uid = 1;</code>
+       * <code>required int32 uid = 1;</code>
        * @return Whether the uid field is set.
        */
       @java.lang.Override
@@ -875,7 +875,7 @@ public final class User {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 uid = 1;</code>
+       * <code>required int32 uid = 1;</code>
        * @return The uid.
        */
       @java.lang.Override
@@ -883,7 +883,7 @@ public final class User {
         return uid_;
       }
       /**
-       * <code>required uint32 uid = 1;</code>
+       * <code>required int32 uid = 1;</code>
        * @param value The uid to set.
        * @return This builder for chaining.
        */
@@ -894,7 +894,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>required uint32 uid = 1;</code>
+       * <code>required int32 uid = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearUid() {
@@ -910,7 +910,7 @@ public final class User {
        *金币
        * </pre>
        *
-       * <code>required uint32 gold = 2;</code>
+       * <code>required int32 gold = 2;</code>
        * @return Whether the gold field is set.
        */
       @java.lang.Override
@@ -922,7 +922,7 @@ public final class User {
        *金币
        * </pre>
        *
-       * <code>required uint32 gold = 2;</code>
+       * <code>required int32 gold = 2;</code>
        * @return The gold.
        */
       @java.lang.Override
@@ -934,7 +934,7 @@ public final class User {
        *金币
        * </pre>
        *
-       * <code>required uint32 gold = 2;</code>
+       * <code>required int32 gold = 2;</code>
        * @param value The gold to set.
        * @return This builder for chaining.
        */
@@ -949,7 +949,7 @@ public final class User {
        *金币
        * </pre>
        *
-       * <code>required uint32 gold = 2;</code>
+       * <code>required int32 gold = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearGold() {
@@ -965,7 +965,7 @@ public final class User {
        *银币
        * </pre>
        *
-       * <code>required uint32 silver = 3;</code>
+       * <code>required int32 silver = 3;</code>
        * @return Whether the silver field is set.
        */
       @java.lang.Override
@@ -977,7 +977,7 @@ public final class User {
        *银币
        * </pre>
        *
-       * <code>required uint32 silver = 3;</code>
+       * <code>required int32 silver = 3;</code>
        * @return The silver.
        */
       @java.lang.Override
@@ -989,7 +989,7 @@ public final class User {
        *银币
        * </pre>
        *
-       * <code>required uint32 silver = 3;</code>
+       * <code>required int32 silver = 3;</code>
        * @param value The silver to set.
        * @return This builder for chaining.
        */
@@ -1004,7 +1004,7 @@ public final class User {
        *银币
        * </pre>
        *
-       * <code>required uint32 silver = 3;</code>
+       * <code>required int32 silver = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSilver() {
@@ -1407,15 +1407,15 @@ public final class User {
         int index);
 
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return Whether the updateTime field is set.
      */
     boolean hasUpdateTime();
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return The updateTime.
      */
-    int getUpdateTime();
+    long getUpdateTime();
   }
   /**
    * Protobuf type {@code proto.Data.User.ItemData}
@@ -1475,7 +1475,7 @@ public final class User {
             }
             case 16: {
               bitField0_ |= 0x00000001;
-              updateTime_ = input.readUInt32();
+              updateTime_ = input.readInt64();
               break;
             }
             default: {
@@ -1555,9 +1555,9 @@ public final class User {
     }
 
     public static final int UPDATETIME_FIELD_NUMBER = 2;
-    private int updateTime_;
+    private long updateTime_;
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return Whether the updateTime field is set.
      */
     @java.lang.Override
@@ -1565,11 +1565,11 @@ public final class User {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return The updateTime.
      */
     @java.lang.Override
-    public int getUpdateTime() {
+    public long getUpdateTime() {
       return updateTime_;
     }
 
@@ -1601,7 +1601,7 @@ public final class User {
         output.writeMessage(1, items_.get(i));
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(2, updateTime_);
+        output.writeInt64(2, updateTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -1618,7 +1618,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, updateTime_);
+          .computeInt64Size(2, updateTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1659,7 +1659,8 @@ public final class User {
       }
       if (hasUpdateTime()) {
         hash = (37 * hash) + UPDATETIME_FIELD_NUMBER;
-        hash = (53 * hash) + getUpdateTime();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUpdateTime());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1801,7 +1802,7 @@ public final class User {
         } else {
           itemsBuilder_.clear();
         }
-        updateTime_ = 0;
+        updateTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -2200,9 +2201,9 @@ public final class User {
         return itemsBuilder_;
       }
 
-      private int updateTime_ ;
+      private long updateTime_ ;
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return Whether the updateTime field is set.
        */
       @java.lang.Override
@@ -2210,31 +2211,31 @@ public final class User {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return The updateTime.
        */
       @java.lang.Override
-      public int getUpdateTime() {
+      public long getUpdateTime() {
         return updateTime_;
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @param value The updateTime to set.
        * @return This builder for chaining.
        */
-      public Builder setUpdateTime(int value) {
+      public Builder setUpdateTime(long value) {
         bitField0_ |= 0x00000002;
         updateTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUpdateTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        updateTime_ = 0;
+        updateTime_ = 0L;
         onChanged();
         return this;
       }
@@ -2296,23 +2297,23 @@ public final class User {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return Whether the id field is set.
      */
     boolean hasId();
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return The id.
      */
     int getId();
 
     /**
-     * <code>optional uint32 count = 2 [default = 0];</code>
+     * <code>optional int32 count = 2 [default = 0];</code>
      * @return Whether the count field is set.
      */
     boolean hasCount();
     /**
-     * <code>optional uint32 count = 2 [default = 0];</code>
+     * <code>optional int32 count = 2 [default = 0];</code>
      * @return The count.
      */
     int getCount();
@@ -2365,12 +2366,12 @@ public final class User {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              id_ = input.readUInt32();
+              id_ = input.readInt32();
               break;
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              count_ = input.readUInt32();
+              count_ = input.readInt32();
               break;
             }
             default: {
@@ -2409,7 +2410,7 @@ public final class User {
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return Whether the id field is set.
      */
     @java.lang.Override
@@ -2417,7 +2418,7 @@ public final class User {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
@@ -2428,7 +2429,7 @@ public final class User {
     public static final int COUNT_FIELD_NUMBER = 2;
     private int count_;
     /**
-     * <code>optional uint32 count = 2 [default = 0];</code>
+     * <code>optional int32 count = 2 [default = 0];</code>
      * @return Whether the count field is set.
      */
     @java.lang.Override
@@ -2436,7 +2437,7 @@ public final class User {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional uint32 count = 2 [default = 0];</code>
+     * <code>optional int32 count = 2 [default = 0];</code>
      * @return The count.
      */
     @java.lang.Override
@@ -2463,10 +2464,10 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, id_);
+        output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeUInt32(2, count_);
+        output.writeInt32(2, count_);
       }
       unknownFields.writeTo(output);
     }
@@ -2479,11 +2480,11 @@ public final class User {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, id_);
+          .computeInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, count_);
+          .computeInt32Size(2, count_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2792,7 +2793,7 @@ public final class User {
 
       private int id_ ;
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return Whether the id field is set.
        */
       @java.lang.Override
@@ -2800,7 +2801,7 @@ public final class User {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return The id.
        */
       @java.lang.Override
@@ -2808,7 +2809,7 @@ public final class User {
         return id_;
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
@@ -2819,7 +2820,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
@@ -2831,7 +2832,7 @@ public final class User {
 
       private int count_ ;
       /**
-       * <code>optional uint32 count = 2 [default = 0];</code>
+       * <code>optional int32 count = 2 [default = 0];</code>
        * @return Whether the count field is set.
        */
       @java.lang.Override
@@ -2839,7 +2840,7 @@ public final class User {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional uint32 count = 2 [default = 0];</code>
+       * <code>optional int32 count = 2 [default = 0];</code>
        * @return The count.
        */
       @java.lang.Override
@@ -2847,7 +2848,7 @@ public final class User {
         return count_;
       }
       /**
-       * <code>optional uint32 count = 2 [default = 0];</code>
+       * <code>optional int32 count = 2 [default = 0];</code>
        * @param value The count to set.
        * @return This builder for chaining.
        */
@@ -2858,7 +2859,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>optional uint32 count = 2 [default = 0];</code>
+       * <code>optional int32 count = 2 [default = 0];</code>
        * @return This builder for chaining.
        */
       public Builder clearCount() {
@@ -2949,15 +2950,15 @@ public final class User {
         int index);
 
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return Whether the updateTime field is set.
      */
     boolean hasUpdateTime();
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return The updateTime.
      */
-    int getUpdateTime();
+    long getUpdateTime();
   }
   /**
    * Protobuf type {@code proto.Data.User.SkillData}
@@ -3017,7 +3018,7 @@ public final class User {
             }
             case 16: {
               bitField0_ |= 0x00000001;
-              updateTime_ = input.readUInt32();
+              updateTime_ = input.readInt64();
               break;
             }
             default: {
@@ -3097,9 +3098,9 @@ public final class User {
     }
 
     public static final int UPDATETIME_FIELD_NUMBER = 2;
-    private int updateTime_;
+    private long updateTime_;
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return Whether the updateTime field is set.
      */
     @java.lang.Override
@@ -3107,11 +3108,11 @@ public final class User {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 updateTime = 2;</code>
+     * <code>required int64 updateTime = 2;</code>
      * @return The updateTime.
      */
     @java.lang.Override
-    public int getUpdateTime() {
+    public long getUpdateTime() {
       return updateTime_;
     }
 
@@ -3143,7 +3144,7 @@ public final class User {
         output.writeMessage(1, skills_.get(i));
       }
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(2, updateTime_);
+        output.writeInt64(2, updateTime_);
       }
       unknownFields.writeTo(output);
     }
@@ -3160,7 +3161,7 @@ public final class User {
       }
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, updateTime_);
+          .computeInt64Size(2, updateTime_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3201,7 +3202,8 @@ public final class User {
       }
       if (hasUpdateTime()) {
         hash = (37 * hash) + UPDATETIME_FIELD_NUMBER;
-        hash = (53 * hash) + getUpdateTime();
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUpdateTime());
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3343,7 +3345,7 @@ public final class User {
         } else {
           skillsBuilder_.clear();
         }
-        updateTime_ = 0;
+        updateTime_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
@@ -3742,9 +3744,9 @@ public final class User {
         return skillsBuilder_;
       }
 
-      private int updateTime_ ;
+      private long updateTime_ ;
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return Whether the updateTime field is set.
        */
       @java.lang.Override
@@ -3752,31 +3754,31 @@ public final class User {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return The updateTime.
        */
       @java.lang.Override
-      public int getUpdateTime() {
+      public long getUpdateTime() {
         return updateTime_;
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @param value The updateTime to set.
        * @return This builder for chaining.
        */
-      public Builder setUpdateTime(int value) {
+      public Builder setUpdateTime(long value) {
         bitField0_ |= 0x00000002;
         updateTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>required uint32 updateTime = 2;</code>
+       * <code>required int64 updateTime = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearUpdateTime() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        updateTime_ = 0;
+        updateTime_ = 0L;
         onChanged();
         return this;
       }
@@ -3838,12 +3840,12 @@ public final class User {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return Whether the id field is set.
      */
     boolean hasId();
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return The id.
      */
     int getId();
@@ -3896,7 +3898,7 @@ public final class User {
               break;
             case 8: {
               bitField0_ |= 0x00000001;
-              id_ = input.readUInt32();
+              id_ = input.readInt32();
               break;
             }
             default: {
@@ -3935,7 +3937,7 @@ public final class User {
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return Whether the id field is set.
      */
     @java.lang.Override
@@ -3943,7 +3945,7 @@ public final class User {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>required uint32 id = 1;</code>
+     * <code>required int32 id = 1;</code>
      * @return The id.
      */
     @java.lang.Override
@@ -3970,7 +3972,7 @@ public final class User {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeUInt32(1, id_);
+        output.writeInt32(1, id_);
       }
       unknownFields.writeTo(output);
     }
@@ -3983,7 +3985,7 @@ public final class User {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, id_);
+          .computeInt32Size(1, id_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4274,7 +4276,7 @@ public final class User {
 
       private int id_ ;
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return Whether the id field is set.
        */
       @java.lang.Override
@@ -4282,7 +4284,7 @@ public final class User {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return The id.
        */
       @java.lang.Override
@@ -4290,7 +4292,7 @@ public final class User {
         return id_;
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @param value The id to set.
        * @return This builder for chaining.
        */
@@ -4301,7 +4303,7 @@ public final class User {
         return this;
       }
       /**
-       * <code>required uint32 id = 1;</code>
+       * <code>required int32 id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearId() {
@@ -4398,15 +4400,15 @@ public final class User {
   static {
     java.lang.String[] descriptorData = {
       "\n\nUser.proto\022\017proto.Data.User\"\217\001\n\014UserGa" +
-      "meData\022\013\n\003uid\030\001 \002(\r\022\014\n\004gold\030\002 \002(\r\022\016\n\006sil" +
-      "ver\030\003 \002(\r\022(\n\005items\030\004 \001(\0132\031.proto.Data.Us" +
+      "meData\022\013\n\003uid\030\001 \002(\005\022\014\n\004gold\030\002 \002(\005\022\016\n\006sil" +
+      "ver\030\003 \002(\005\022(\n\005items\030\004 \001(\0132\031.proto.Data.Us" +
       "er.ItemData\022*\n\006skills\030\005 \001(\0132\032.proto.Data" +
       ".User.SkillData\"D\n\010ItemData\022$\n\005items\030\001 \003" +
       "(\0132\025.proto.Data.User.Item\022\022\n\nupdateTime\030" +
-      "\002 \002(\r\"$\n\004Item\022\n\n\002id\030\001 \002(\r\022\020\n\005count\030\002 \001(\r" +
+      "\002 \002(\003\"$\n\004Item\022\n\n\002id\030\001 \002(\005\022\020\n\005count\030\002 \001(\005" +
       ":\0010\"G\n\tSkillData\022&\n\006skills\030\001 \003(\0132\026.proto" +
-      ".Data.User.Skill\022\022\n\nupdateTime\030\002 \002(\r\"\023\n\005" +
-      "Skill\022\n\n\002id\030\001 \002(\r"
+      ".Data.User.Skill\022\022\n\nupdateTime\030\002 \002(\003\"\023\n\005" +
+      "Skill\022\n\n\002id\030\001 \002(\005"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

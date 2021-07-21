@@ -1,7 +1,6 @@
-package com.fish.qrcode;
+package com.fish.test;
 
 
-import com.fish.model.UserData;
 import com.fish.model.bean.GameInfo;
 import org.openjdk.jol.info.ClassLayout;
 

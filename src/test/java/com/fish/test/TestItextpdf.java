@@ -1,4 +1,4 @@
-package com.fish.test1;
+package com.fish.test;
 
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.*;

@@ -1,4 +1,4 @@
-package com.fish.test;
+package com.fish.udpTest;
 
 import com.fish.netty.udp.Frame;
 import io.netty.bootstrap.Bootstrap;

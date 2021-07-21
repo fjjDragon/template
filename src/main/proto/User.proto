@@ -2,28 +2,28 @@ syntax = "proto2";
 package proto.Data.User;
 
 message UserGameData {
-	required uint32 uid = 1;
-	required uint32 gold = 2; //金币
-	required uint32 silver = 3; //银币
+	required int32 uid = 1;
+	required int32 gold = 2; //金币
+	required int32 silver = 3; //银币
 	optional ItemData items = 4; //道具信息
 	optional SkillData skills = 5; //技能信息
 }
 
 message ItemData {
 	repeated Item items = 1;
-	required uint32 updateTime = 2;
+	required int64 updateTime = 2;
 }
 
 message Item {
-	required uint32 id = 1;
-	optional uint32 count = 2 [default = 0];
+	required int32 id = 1;
+	optional int32 count = 2 [default = 0];
 }
 
 message SkillData {
 	repeated Skill skills = 1;
-	required uint32 updateTime = 2;
+	required int64 updateTime = 2;
 }
 
 message Skill {
-	required uint32 id = 1;
+	required int32 id = 1;
 }
