@@ -23,11 +23,13 @@ clusterServersConfig:
   slaveSubscriptionConnectionMinimumIdleSize: 1
   slaveSubscriptionConnectionPoolSize: 50
   #  从节点最小空闲连接数
-  slaveConnectionMinimumIdleSize: 32
+#  slaveConnectionMinimumIdleSize: 32
+  slaveConnectionMinimumIdleSize: 1
   #  从节点连接池大小
   slaveConnectionPoolSize: 64
   #  主节点最小空闲连接数
-  masterConnectionMinimumIdleSize: 32
+#  masterConnectionMinimumIdleSize: 32
+  masterConnectionMinimumIdleSize: 1
   #  主节点连接池大小
   masterConnectionPoolSize: 64
   #  读取操作的负载均衡模式
@@ -47,6 +49,8 @@ threads: 0
 # Netty线程池数量
 nettyThreads: 0
 # 编码，用于将对象进行序列化和反序列化
-codec: !<org.redisson.codec.JsonJacksonCodec> { }
+#codec: !<org.redisson.codec.JsonJacksonCodec> { } ## Redisson默认值
+#codec: !<org.redisson.client.codec.StringCodec> { } ## redis-cli使用纯字符串编码
+codec: !<org.redisson.client.codec.ByteArrayCodec> { } ## 字节数组编码
 # 传输模式
 "transportMode": "NIO"
