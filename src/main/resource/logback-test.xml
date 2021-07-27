@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false">
+    <property name="log.path" value="logs/template"/>
+
+    <!--0. 日志格式和颜色渲染 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex"
+                    converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx"
+                    converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_PATTERN"
+              value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{50}){cyan} %L %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+
+    <!--1. 输出到控制台-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--此日志appender是为开发使用，只配置最底级别，控制台输出的日志级别是大于或等于此级别的日志信息-->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <!-- 设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!--2. 输出到文档-->
+    <!-- 2.1 level为 DEBUG 日志，时间滚动输出  -->
+    <!--    <appender name="FILE_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+    <!--        &lt;!&ndash;正在记录的日志文档的路径及文档名&ndash;&gt;-->
+    <!--        &lt;!&ndash;        <file>${log.path}/web_debug.log</file>&ndash;&gt;-->
+    <!--        &lt;!&ndash;此日志文档只记录debug级别的 &ndash;&gt;-->
+    <!--        &lt;!&ndash;        <filter class="ch.qos.logback.classic.filter.LevelFilter">&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <level>DEBUG</level>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <onMatch>ACCEPT</onMatch>&ndash;&gt;-->
+    <!--        &lt;!&ndash;            <onMismatch>DENY</onMismatch>&ndash;&gt;-->
+    <!--        &lt;!&ndash;        </filter>&ndash;&gt;-->
+    <!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+    <!--            <level>DEBUG</level>-->
+    <!--        </filter>-->
+    <!--        &lt;!&ndash;日志记录器的滚动策略，按日期，按大小记录&ndash;&gt;-->
+    <!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+    <!--            &lt;!&ndash;日志归档&ndash;&gt;-->
+    <!--            <fileNamePattern>${log.path}/debug/%d{yyyy-MM}/%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+    <!--            <maxFileSize>50MB</maxFileSize>  &lt;!&ndash; 日志文件过大会使的编辑器打开非常慢，因此设置日志最大50MB &ndash;&gt;-->
+    <!--            &lt;!&ndash;日志文档保留天数&ndash;&gt;-->
+    <!--            <maxHistory>1</maxHistory>-->
+    <!--            &lt;!&ndash;总日志大小&ndash;&gt;-->
+    <!--            &lt;!&ndash;            <totalSizeCap>10GB</totalSizeCap>&ndash;&gt;-->
+    <!--        </rollingPolicy>-->
+    <!--        &lt;!&ndash;日志文档输出格式&ndash;&gt;-->
+    <!--        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">-->
+    <!--            &lt;!&ndash;%d{HH: mm:ss.SSS}——日志输出时间&ndash;&gt;-->
+    <!--            &lt;!&ndash;%thread——输出日志的进程名字，这在Web应用以及异步任务处理中很有用&ndash;&gt;-->
+    <!--            &lt;!&ndash;%-5level——日志级别，并且使用5个字符靠左对齐&ndash;&gt;-->
+    <!--            &lt;!&ndash;%logger{36}——日志输出者的名字&ndash;&gt;-->
+    <!--            &lt;!&ndash;%msg——日志消息&ndash;&gt;-->
+    <!--            &lt;!&ndash;%n——平台的换行符&ndash;&gt;-->
+    <!--            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>-->
+    <!--            <charset>UTF-8</charset> &lt;!&ndash;设置字符集 &ndash;&gt;-->
+    <!--        </encoder>-->
+    <!--    </appender>-->
+
+    <!-- 2.2 level为 INFO 日志，时间滚动输出  -->
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 正在记录的日志文档的路径及文档名 -->
+        <!--        <file>${log.path}/web_info.log</file>-->
+        <!-- 此日志文档只记录info级别的 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 每天日志归档路径以及格式 -->
+            <fileNamePattern>${log.path}/info/%d{yyyy-MM}/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!--日志文档保留天数-->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <!--日志文档输出格式-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 2.2 level为 WARN 日志，时间滚动输出  -->
+    <appender name="FILE_WARN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 此日志文档只记录info级别的 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!-- 每天日志归档路径以及格式 -->
+            <fileNamePattern>${log.path}/warn/%d{yyyy-MM}/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>50MB</maxFileSize>
+            <!--日志文档保留天数-->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <!--日志文档输出格式-->
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 2.4 level为 ERROR 日志，时间滚动输出  -->
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 正在记录的日志文档的路径及文档名 -->
+        <!--        <file>${log.path}/web_error.log</file>-->
+        <!-- 此日志文档只记录ERROR级别的 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <!-- 日志记录器的滚动策略，按日期，按大小记录 -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/error/%d{yyyy-MM}/%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>20MB</maxFileSize>
+            <!--日志文档保留天数-->
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+        <!--日志文档输出格式-->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+            <charset>UTF-8</charset> <!-- 此处设置字符集 -->
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="org.redisson" level="ERROR" additivity="false">
+        <appender-ref ref="FILE_ERROR"/>
+    </logger>
+    <logger name="org.mongodb" level="ERROR" additivity="false">
+        <appender-ref ref="FILE_ERROR"/>
+    </logger>
+    <logger name="io.netty" level="ERROR" additivity="false">
+        <appender-ref ref="FILE_ERROR"/>
+    </logger>
+
+    <logger name="com.fish" additivity="true">
+        <appender-ref ref="FILE_ERROR"/>
+        <appender-ref ref="FILE_WARN"/>
+        <appender-ref ref="FILE_INFO"/>
+    </logger>
+    <logger name="com.fish.util.LogUtil" additivity="false">
+
+    </logger>
+</configuration>

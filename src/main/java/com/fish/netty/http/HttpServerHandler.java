@@ -1,7 +1,7 @@
 package com.fish.netty.http;
 
 import com.alibaba.fastjson.JSONObject;
-import com.fish.executor.ExecutorService;
+import com.fish.common.Executors;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -41,9 +41,9 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<Object> {
             HttpRequest request = (HttpRequest) msg;
             // 处理get请求
             if (request.method().equals(HttpMethod.GET)) {
-                HttpRequestHandler hr = new HttpRequestHandler(ctx, request);
+                HttpRequestHandlerDiapatcher hr = new HttpRequestHandlerDiapatcher(ctx, request);
                 hr.setTime(System.currentTimeMillis());
-                ExecutorService.execute(hr);
+                Executors.execute(hr);
                 method = 1;
                 return;
             }
@@ -70,10 +70,10 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<Object> {
                 Attribute<HttpRequest> attr = ctx.channel().attr(NettyHttpServer.USER_ID_KEY);
                 HttpRequest request = attr.get();
                 attr.set(null);
-                HttpRequestHandler hr = new HttpRequestHandler(ctx, request, content);
+                HttpRequestHandlerDiapatcher hr = new HttpRequestHandlerDiapatcher(ctx, request, content);
                 content = null;
                 hr.setTime(System.currentTimeMillis());
-                ExecutorService.execute(hr);
+                Executors.execute(hr);
             }
         } else if (method != 1) {
             writeMethodNotAllowedRespone(ctx, "Mathod Not Allowed!");

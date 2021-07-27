@@ -5,4 +5,6 @@ package com.fish.model.bean;
  * @date: 2021-04-24 15:04
  */
 public class AccountInfo {
+    private String openId;
+
 }

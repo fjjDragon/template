@@ -2,7 +2,6 @@ package com.fish.cache;
 
 import com.fish.model.UserData;
 
-import java.util.Arrays;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -13,6 +12,17 @@ import java.util.concurrent.locks.ReentrantLock;
 public class UserCache {
     //玩家数据缓存<uid ,< uid,userInfo >>
     private static ConcurrentHashMap<Integer, UserData> userCache = new ConcurrentHashMap<>();
+
+//    private static LoadingCache<String, Document> cache_Account_verify_info = CacheBuilder.newBuilder()
+//            .maximumSize(20000).build(new CacheLoader<String, Document>() {
+//
+//                @Override
+//                public Document load(String key) throws Exception {
+//
+//                    throw new RuntimeException();
+//                }
+//
+//            });
 
     public static UserData getUserById(int uid) {
         return userCache.get(uid);

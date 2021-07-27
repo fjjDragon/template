@@ -1,0 +1,10 @@
+port:
+  8100
+
+server:
+  UseDynamicClasses: true
+
+mongodb:
+  uri: mongodb://119.90.39.167:27017/pineapple?connectTimeoutMS=30000&authSource=admin
+
+#  mongodb://ello_user:N1cJuzjRcYzUUA@10.163.38.243:27017,10.163.47.110:27017,10.163.62.241:27017/ello_rankInfo

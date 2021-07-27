@@ -30,11 +30,6 @@ public class RedisDao {
         System.exit(0);
     }
 
-    private RedissonClient redisson;
-
-    private RedisDao() {
-    }
-
     public static RedisDao getInstance() {
         return RedisDaoHolder.instance;
     }
@@ -42,6 +37,23 @@ public class RedisDao {
     static class RedisDaoHolder {
         private static RedisDao instance = new RedisDao();
     }
+
+    public boolean init() {
+        try {
+            Config config = Config.fromYAML(RedisDao.class.getClassLoader().getResource("redis.yaml"));
+            redisson = Redisson.create(config);
+            return true;
+        } catch (Exception e) {
+            log.error("", e);
+            return false;
+        }
+    }
+
+    private RedissonClient redisson;
+
+    private RedisDao() {
+    }
+
 
     public RedissonClient getRedisson() {
         return redisson;
@@ -70,22 +82,12 @@ public class RedisDao {
         log.warn("======unlock======" + Thread.currentThread().getName());
     }
 
-    public boolean init() {
-        try {
-            Config config = Config.fromYAML(RedisDao.class.getClassLoader().getResource("redis.yaml"));
-            redisson = Redisson.create(config);
-            return true;
-        } catch (Exception e) {
-            log.error("", e);
-            return false;
-        }
-    }
-
     public void test() {
         RBucket testRedisson_1 = redisson.getBucket("testRedisson_str1");
         Object o = testRedisson_1.get();
-        System.out.println();
-
+        if (null != o) {
+            System.out.println(o);
+        }
         RKeys keys = redisson.getKeys();
         RType type = keys.getType("testRedisson_str1");
         System.out.println("testRedisson_2 ：" + type);

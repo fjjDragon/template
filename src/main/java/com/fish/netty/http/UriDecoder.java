@@ -1,5 +1,6 @@
 package com.fish.netty.http;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 
 import java.net.URLDecoder;
@@ -8,9 +9,12 @@ import java.util.Map;
 
 @Slf4j
 public class UriDecoder {
-    private Map<String, String> paramsMap = new HashMap<String, String>();
+    private Map<String, String> paramsMap = new HashMap<>();
+    private String path_original;
     private String path[];
     private String ip;
+    private JSONObject bodyJSON;
+
 
     public void praser(String url) {
         int index = url.indexOf('?');
@@ -22,7 +26,6 @@ public class UriDecoder {
             return;
         }
         setPath(url.substring(jjj + 1, index));
-
 
 
         index++;
@@ -64,6 +67,10 @@ public class UriDecoder {
             paramsMap.put(str.substring(index, endIndex), str.substring(endIndex + 1, startIndex));
             index = startIndex + 1;
         }
+    }
+
+    public void parseBodyJSON(String str) {
+        bodyJSON = JSONObject.parseObject(str);
     }
 
     public String getValue(String key) {
@@ -108,7 +115,7 @@ public class UriDecoder {
 
     public int getInt(String key) {
         try {
-            return Integer.valueOf(paramsMap.get(key));
+            return Integer.parseInt(paramsMap.get(key));
         } catch (Exception e) {
             return -1;
         }
@@ -117,7 +124,7 @@ public class UriDecoder {
 
     public int getInt(String key, int df) {
         try {
-            return Integer.valueOf(paramsMap.get(key));
+            return Integer.parseInt(paramsMap.get(key));
         } catch (Exception e) {
             return df;
         }
@@ -126,7 +133,7 @@ public class UriDecoder {
 
     public long getLong(String key) {
         try {
-            return Long.valueOf(paramsMap.get(key));
+            return Long.parseLong(paramsMap.get(key));
         } catch (Exception e) {
             return -1l;
         }
@@ -135,7 +142,7 @@ public class UriDecoder {
 
     public long getLong(String key, long df) {
         try {
-            return Long.valueOf(paramsMap.get(key));
+            return Long.parseLong(paramsMap.get(key));
         } catch (Exception e) {
             return df;
         }
@@ -149,6 +156,10 @@ public class UriDecoder {
         }
     }
 
+    public String getPath() {
+        return path_original;
+    }
+
     public String getPath(int i) {
         if (path.length <= i)
             return null;
@@ -156,6 +167,7 @@ public class UriDecoder {
     }
 
     public void setPath(String path) {
+        this.path_original = path;
         if (path == null || path.length() == 0) {
             this.path = new String[]{"/"};
         } else {
@@ -169,6 +181,10 @@ public class UriDecoder {
 
     public void setIp(String ip) {
         this.ip = ip;
+    }
+
+    public JSONObject getBodyJSON() {
+        return bodyJSON;
     }
 
     public Map<String, String> getParamsMap() {

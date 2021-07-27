@@ -26,6 +26,11 @@ public class NettyUdpServer extends Thread {
         this.port = port;
     }
 
+    public static void main(String[] args) {
+        NettyUdpServer udpServer = new NettyUdpServer(7788);
+        udpServer.run();
+    }
+
     @Override
     public void run() {
         onStart();
