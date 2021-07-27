@@ -99,7 +99,7 @@ public class RedisDao {
         UserData userData = new UserData();
         userData.setUid(1234);
         userData.setuTime(1622192656479L);
-        userData.setOpenid("ecXPh48CuEl04bbig81U");
+        userData.setOpenID("ecXPh48CuEl04bbig81U");
 //        testRedisson_bucket.set(userData);
 
         UserData o = (UserData) testRedisson_bucket.get();
@@ -153,7 +153,7 @@ public class RedisDao {
         UserData userData = new UserData();
         userData.setUid(6666);
         userData.setuTime(1622194033808L);
-        userData.setOpenid("ecXPh4812456788545L");
+        userData.setOpenID("ecXPh4812456788545L");
 
 
         RTopic topic = redisson.getTopic("testRedisson_topic");

@@ -5,6 +5,7 @@ import com.fish.annotation.Controller;
 import com.fish.annotation.RequestMapping;
 import com.fish.common.LoginType;
 import com.fish.common.ResponseCode;
+import com.fish.dao.mongo.MongoDBOperation;
 import com.fish.netty.http.UriDecoder;
 import com.fish.util.WxAuthUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -47,8 +48,8 @@ public class LoginController {
         JSONObject response = WxAuthUtil.getJsCode2Session(WxAuthUtil.APPID, WxAuthUtil.APPSECRET, code);
         if (response == null || !response.containsKey("openid")) {
             JSONObject jsonObject = ResponseCode.ERROR.toJSONObject();
-            jsonObject.put("authInfo",response);
-            return json;
+            jsonObject.put("theThird", response);
+            return jsonObject;
         }
 
         if (response.getIntValue("errcode") != 0) {
@@ -60,11 +61,12 @@ public class LoginController {
             String session_key = response.getString("session_key");
 
 
-            if (oneAndUpdate == null || !oneAndUpdate.containsKey("phone") ||) ==null){// 判断是首次绑定,新增积分
-                return null;
-            }
+//            if (oneAndUpdate == null || !oneAndUpdate.containsKey("phone") ||) ==null){// 判断是首次绑定,新增积分
+//                return null;
+//            }
 
-
+            JSONObject jsonObject = new JSONObject();
+            return jsonObject;
         }
 
     }
@@ -93,5 +95,6 @@ public class LoginController {
         obj.put("channel", channelId);
         obj.put("fl", loginType);
         obj.put("time", System.currentTimeMillis());
-        mongo.updateRfIdInfo(cdn, new Document("$setOnInsert", obj), true);
+//        mongo.updateRfIdInfo(cdn, new Document("$setOnInsert", obj), true);
     }
+}
